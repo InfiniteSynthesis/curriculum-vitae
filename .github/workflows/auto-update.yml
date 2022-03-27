@@ -1,0 +1,36 @@
+name: CV - Auto Compile and Update
+on:
+  workflow_dispatch:
+    # For manually trigger
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Git repository
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.DEPLOY_TOKEN }}
+        persist-credentials: false
+        fetch-depth: 0
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: cv.tex
+    - name: Check pdf file
+      run: |
+        file cv.pdf | grep -q ' PDF '
+    - name: Upload cv.pdf
+      run: |
+        git config --global user.email shenyu.tcv@gmail.com
+        git config --global user.name InfiniteSynthesis
+
+        git clone --depth=1 git@github.com:InfiniteSynthesis/tcv.git "$GITHUB_WORKSPACE/tcv"
+        cp -f cv.pdf "$GITHUB_WORKSPACE/tcv/src/files/cv.pdf"
+        cd "$GITHUB_WORKSPACE/tcv"
+        git add src/files/cv.pdf
+        git commit -m "update cv (bot)"
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.DEPLOY_TOKEN }} 
