@@ -313,6 +313,17 @@
 \newcommand*{\githubsocialsymbol}  {}
 \newcommand*{\gitlabsocialsymbol}  {}
 \newcommand*{\skypesocialsymbol}   {}
+\newcommand*{\stackoverflowsocialsymbol}{}
+\newcommand*{\bitbucketsocialsymbol}{}
+\newcommand*{\orcidsocialsymbol}{}
+\newcommand{\researchgatesocialsymbol}{}
+\newcommand*{\researcheridsocialsymbol}{}
+\newcommand*{\googlescholarsocialsymbol}{}
+\newcommand*{\telegramsocialsymbol}{}
+\newcommand*{\whatsappsocialsymbol}{}
+\newcommand*{\signalsocialsymbol}{}
+\newcommand*{\matrixsocialsymbol}{}
+\newcommand*{\bornsymbol}{}
 
 % other
 %------
