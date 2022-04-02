@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
     # For manually trigger
   push:
+  pull_request:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,17 +21,17 @@ jobs:
     - name: Check pdf file
       run: |
         file cv.pdf | grep -q ' PDF '
-    - name: Upload cv.pdf
+    - name: Get current date
+      id: date
       run: |
-        git config --global user.email shenyu.tcv@gmail.com
-        git config --global user.name InfiniteSynthesis
-
-        git clone --depth=1 git@github.com:InfiniteSynthesis/tcv.git "$GITHUB_WORKSPACE/tcv"
-        cp -f cv.pdf "$GITHUB_WORKSPACE/tcv/src/files/cv.pdf"
-        cd "$GITHUB_WORKSPACE/tcv"
-        git add src/files/cv.pdf
-        git commit -m "update cv (bot)"
-    - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
+        echo "::set-output name=date::$(date +'%Y-%m-%d')"
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
       with:
-        github_token: ${{ secrets.DEPLOY_TOKEN }} 
+        body: CV-YuSHEN-${{ steps.date.outputs.date }}
+        name: CV-YuSHEN-${{ steps.date.outputs.date }}
+        prerelease: false
+        draft: false
+        files: cv.pdf
+        token: ${{ secrets.DEPLOY_TOKEN }}
