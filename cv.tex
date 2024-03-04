@@ -1,9 +1,11 @@
-\documentclass[11pt, a4paper, sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
-
-\moderncvstyle{casual} % CV theme
-\moderncvcolor{custom} % CV color 
-
+\documentclass[11pt,a4paper,sans]{moderncv}
 \usepackage[scale=0.85]{geometry}
+\usepackage{lmodern}
+
+\moderncvstyle{casual}
+\definecolor{color0}{HTML}{000000}
+\definecolor{color1}{HTML}{BB6588}
+\definecolor{color2}{HTML}{CCAA87}
 \setlength{\hintscolumnwidth}{3.5cm}
 
 \name{Yu}{SHEN}
@@ -11,7 +13,7 @@
 
 \begin{document}
 
-\makecvfoot % Print the CV footer
+\makecvfoot
 
 \begin{tabular}{l r}
     \begin{minipage}{.45\textwidth}
@@ -20,11 +22,14 @@
     \begin{minipage}{.55\textwidth}
         \begin{flushright}
             \normalsize \color{color1} \vspace{.3in}
-            \href{mailto:shenyu.tcv@gmail.com}{{\faEnvelope} shenyu.tcv@gmail.com} \\
-            \href{https://www.google.com/maps/place/The+Bayes+Centre,+The+University+of+Edinburgh/@55.9453104,-3.1897611,17z/data=!3m1!4b1!4m6!3m5!1s0x4887c7d062a4b737:0xe8b71b6220a53c7!8m2!3d55.9453074!4d-3.1871808!16s%2Fg%2F11gl4ml5r7?entry=ttu}{{\faMapMarker} Bayes Centre (3.17), 47 Potterrow, EH8 9BT} \\
-            \href{https://github.com/InfiniteSynthesis}{{\faGithub}   InfiniteSynthesis}
-            \href{https://www.linkedin.com/in/shenyutcv/}{{\faLinkedin} shenyu.tcv}
-            \href{https://shenyu-official.icu}{{\faCoffee} shenyu-official.icu} \\
+            \href{mailto:shenyu.tcv@gmail.com}{\faEnvelope~shenyu.tcv@gmail.com} 
+            \\
+            \href{https://www.google.com/maps/place/The+Bayes+Centre,+The+University+of+Edinburgh/@55.9453104,-3.1897611,17z/data=!3m1!4b1!4m6!3m5!1s0x4887c7d062a4b737:0xe8b71b6220a53c7!8m2!3d55.9453074!4d-3.1871808!16s%2Fg%2F11gl4ml5r7?entry=ttu}{\faMapMarker~Bayes Centre (3.17), 47 Potterrow, EH8 9BT} \\
+            % \href{https://dblp.org/pid/48/4462-2.html}{DBLP}~
+            \href{https://github.com/InfiniteSynthesis}{\faGithub}~
+            \href{https://www.linkedin.com/in/shenyutcv/}{\faLinkedin}~
+            \href{https://shenyu-official.icu}{{\faCoffee} shenyu-official.icu}
+             \\
             \color{color2} Last update: \today
         \end{flushright}
     \end{minipage}
@@ -38,8 +43,8 @@
 
 \cvitem{}
 {I am broadly interested in the interplay of distributed algorithms and cryptography, especially the design and analysis of blockchain protocols. My current focuses include:}
-\cvlistitem{Permissionless clock synchronization.}
-\cvlistitem{Blockchain transaction serialization with fair order.}
+\cvlistitem{Permissionless consensus and clock synchronization.}
+\cvlistitem{Blockchain transaction serialization with order fairness.}
 
 
 %---EDUCATION SECTION----------------------------------------------------------
@@ -50,14 +55,14 @@
 {School of Informatics, University of Edinburgh}
 {Scotland}
 {}
-{Advisor: \href{https://kiayias.com/}{Prof. Aggelos Kiayias}}
+{Advisor: Prof. Aggelos Kiayias and Dr. Michele Ciampi}
 
 \cventry{2019 -- 2021}
 {M.S. in Computer Science}
 {Texas A\&M University}
 {}
 {US}
-{Thesis: \href{https://oaktrust.library.tamu.edu/bitstream/handle/1969.1/195819/SHEN-THESIS-2021.pdf}{A Formal Analysis of Bitcoin Cash} \\Advisor: \href{https://jagaray.com/}{Prof. Juan A. Garay}}
+{Thesis: \href{https://oaktrust.library.tamu.edu/bitstream/handle/1969.1/195819/SHEN-THESIS-2021.pdf}{A Formal Analysis of Bitcoin Cash} \\Advisor: Prof. Juan A. Garay}
 
 \cventry{2015 -- 2019}
 {B.S. in Computer Science and Technology}
@@ -95,14 +100,14 @@
 %---PUBLICATIONS SECTION-------------------------------------------------------
 \section{Publications \& Manuscripts}
 
-\cventry{Manuscript}
+\cventry{EUROCRYPT '24\linebreak (to appear)}
 {\textbf{\href{https://eprint.iacr.org/2023/1663.pdf}{Proof-of-Work-based Consensus in Expected-Constant Time}}}
 {}
 {}
 {}
 {\normalsize Juan A. Garay, Aggelos Kiayias, \underline{Yu Shen}}
 
-\cventry{Manuscript}
+\cventry{EUROCRYPT '24\linebreak (to appear)}
 {\textbf{\href{https://eprint.iacr.org/2023/1253.pdf}{Ordering Transactions with Bounded Unfairness: Definitions, Complexity and Constructions}}}
 {}
 {}
